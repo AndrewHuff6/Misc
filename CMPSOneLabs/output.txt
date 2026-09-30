@@ -1,0 +1,9 @@
+Andrew Huff
+CMPS One - Dr. Morgan/Colmenares
+9/30/26
+This program demonstrates if statement and while loop usage.
+
+Total Purchase    $ 2648.03
+Discount          $ 1324.01
+---------------------------
+New Price         $ 1324.01
