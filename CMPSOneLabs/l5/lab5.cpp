@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
     // Declarations and Initializations
-    double val, total_sum = 0, temp_sum = 0;
+    double val, val = 0, temp_sum = 0;
     int count = 1;
     ofstream outfile("output.txt");
 
@@ -21,32 +21,32 @@ int main() {
         // Insert cin & calculations here – output to file
         cout << "Enter your data values: " << endl;
         cin >> val;     // Accept the user val
-        total_sum += val;     // Add it to the sum
+
+        // Begin if statement logic
+        if (val < 100) {
+            temp_sum = val * .1;
+        }
+        else if (val > 100 && val < 249.99) {
+            temp_sum = val * .2;
+        }
+        else if (val > 250 && val < 499.99 ) {
+            temp_sum = val * .3;
+        }
+        else if (val > 500 && val < 999.99) {
+            temp_sum = val * .4;
+        }
+        else {
+            temp_sum = val * .5;
+        }
+
         count += 1;     // Increment
     }
-
-    // Begin if statement logic
-    if (total_sum < 100) {
-        temp_sum = total_sum * .1;
-    }
-    else if (total_sum > 100 && total_sum < 249.99) {
-        temp_sum = total_sum * .2;
-    }
-    else if (total_sum > 250 && total_sum < 499.99 ) {
-        temp_sum = total_sum * .3;
-    }
-    else if (total_sum > 500 && total_sum < 999.99) {
-        temp_sum = total_sum * .4;
-    }
-    else {
-        temp_sum = total_sum * .5;
-    }
-
+    
     // Formatting and displaying the table
-    outfile << "Total Purchase" << setw(5) << "$" << setw(8) << fixed << setprecision(2) << total_sum << endl;
+    outfile << "Total Purchase" << setw(5) << "$" << setw(8) << fixed << setprecision(2) << val << endl;
     outfile << "Discount" << setw(11) << "$" << setw(8) << temp_sum << endl;
     outfile << string(27, '-') << endl;
-    outfile << "New Price" << setw(10) << "$" << setw(8) << total_sum - temp_sum << endl;
+    outfile << "New Price" << setw(10) << "$" << setw(8) << val - temp_sum << endl;
 
     // Close the file
     outfile.close();
